@@ -221,6 +221,12 @@ static const struct {
   { "reclevel",         &opt.reclevel,          cmd_number_inf },
   { "recursive",        NULL,                   cmd_spec_recursive },
   { "referer",          &opt.referer,           cmd_string },
+  { "regex_AD",          &opt.acclist_domain_regex_str,        cmd_vector },
+  { "regex_AP",          &opt.acclist_path_regex_str,          cmd_vector },
+  { "regex_AU",          &opt.acclist_URL_regex_str,           cmd_vector },
+  { "regex_RD",          &opt.rejlist_domain_regex_str,        cmd_vector },
+  { "regex_RP",          &opt.rejlist_path_regex_str,          cmd_vector },
+  { "regex_RU",          &opt.rejlist_URL_regex_str,           cmd_vector },
   { "reject",           &opt.rejects,           cmd_vector },
   { "relativeonly",     &opt.relative_only,     cmd_boolean },
   { "removelisting",    &opt.remove_listing,    cmd_boolean },
@@ -1524,6 +1530,21 @@ cleanup (void)
   xfree_null (opt.cookies_output);
   xfree_null (opt.user);
   xfree_null (opt.passwd);
+
+  free_vec (opt.acclist_URL_regex_str);
+  free_vec (opt.rejlist_URL_regex_str);
+  free_vec (opt.acclist_domain_regex_str);
+  free_vec (opt.rejlist_domain_regex_str);
+  free_vec (opt.acclist_path_regex_str);
+  free_vec (opt.rejlist_path_regex_str);
+
+  clean_regex_buffer (opt.acclist_URL_regex);
+  clean_regex_buffer (opt.rejlist_URL_regex);
+  clean_regex_buffer (opt.acclist_domain_regex);
+  clean_regex_buffer (opt.rejlist_domain_regex);
+  clean_regex_buffer (opt.acclist_path_regex);
+  clean_regex_buffer (opt.rejlist_path_regex);
+
 #endif /* DEBUG_MALLOC */
 }
 

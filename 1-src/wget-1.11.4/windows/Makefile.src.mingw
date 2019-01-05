@@ -36,6 +36,13 @@ ifdef SSL
     OBJS += openssl${OBJ_EXT} http-ntlm${OBJ_EXT}
 endif
 
+ifdef REGEX
+    ## LIBGNURX_PATH is the LIBGNURX installed directory
+    LIBGNURX_PATH = ../../libgnurx-2.5
+    CFLAGS += -I${LIBGNURX_PATH}/include
+    LIBS += -L${LIBGNURX_PATH}/lib -lgnurx
+endif
+
 all: wget.exe
 
 wget.exe: $(OBJS)

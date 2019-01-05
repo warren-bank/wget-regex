@@ -84,6 +84,7 @@ as that of the covered work.  */
 #include "wget.h"
 #include "utils.h"
 #include "hash.h"
+#include <regex.h>
 
 #ifdef TESTING
 #include "test.h"
@@ -646,32 +647,6 @@ fnmatch_nocase (const char *pattern, const char *string, int flags)
 #endif
 }
 
-static bool in_acclist (const char *const *, const char *, bool);
-
-/* Determine whether a file is acceptable to be followed, according to
-   lists of patterns to accept/reject.  */
-bool
-acceptable (const char *s)
-{
-  int l = strlen (s);
-
-  while (l && s[l] != '/')
-    --l;
-  if (s[l] == '/')
-    s += (l + 1);
-  if (opt.accepts)
-    {
-      if (opt.rejects)
-        return (in_acclist ((const char *const *)opt.accepts, s, true)
-                && !in_acclist ((const char *const *)opt.rejects, s, true));
-      else
-        return in_acclist ((const char *const *)opt.accepts, s, true);
-    }
-  else if (opt.rejects)
-    return !in_acclist ((const char *const *)opt.rejects, s, true);
-  return true;
-}
-
 /* Check if D2 is a subdirectory of D1.  E.g. if D1 is `/something', subdir_p()
    will return true if and only if D2 begins with `/something/' or is exactly 
    '/something'.  */
@@ -717,31 +692,6 @@ dir_matches_p (char **dirlist, const char *dir)
     }
       
   return *x ? true : false;
-}
-
-/* Returns whether DIRECTORY is acceptable for download, wrt the
-   include/exclude lists.
-
-   The leading `/' is ignored in paths; relative and absolute paths
-   may be freely intermixed.  */
-
-bool
-accdir (const char *directory)
-{
-  /* Remove starting '/'.  */
-  if (*directory == '/')
-    ++directory;
-  if (opt.includes)
-    {
-      if (!dir_matches_p (opt.includes, directory))
-        return false;
-    }
-  if (opt.excludes)
-    {
-      if (dir_matches_p (opt.excludes, directory))
-        return false;
-    }
-  return true;
 }
 
 /* Return true if STRING ends with TAIL.  For instance:
@@ -2200,3 +2150,174 @@ test_dir_matches_p()
 
 #endif /* TESTING */
 
+// ============================================================================ regex additions:
+
+static int count_strings(char**);
+static bool in_acclist_regex(const regex_t *const *, const char *);
+
+/* Returns whether DIRECTORY is acceptable for download, wrt the
+   include/exclude lists.
+
+   The leading `/' is ignored in paths; relative and absolute paths
+   may be freely intermixed.  */
+
+bool accdir (const char *directory)
+{
+  bool allowed = true;
+
+  /* Remove starting '/'.  */
+  if (*directory == '/')
+    ++directory;
+
+  if (allowed && opt.includes)
+    allowed = dir_matches_p ((const char *const *)opt.includes, directory);
+
+  if (allowed && opt.excludes)
+    allowed = !dir_matches_p ((const char *const *)opt.excludes, directory);
+
+  if (allowed && opt.acclist_path_regex)
+    allowed = in_acclist_regex ((const regex_t *const *)opt.acclist_path_regex, directory);
+
+  if (allowed && opt.rejlist_path_regex)
+    allowed = !in_acclist_regex ((const regex_t *const *)opt.rejlist_path_regex, directory);
+
+  return allowed;
+}
+
+/* Determine whether a file is acceptable to be followed, according to
+   lists of patterns to accept/reject.  */
+bool acceptable (const char *file, const char *url)
+{
+  bool allowed = true;
+  int l = strlen (file);
+
+  while (l && file[l] != '/')
+    --l;
+  if (file[l] == '/')
+    file += (l + 1);
+
+  if (allowed && opt.accepts)
+    allowed = in_acclist ((const char *const *)opt.accepts, file, true);
+
+  if (allowed && opt.rejects)
+    allowed = !in_acclist ((const char *const *)opt.rejects, file, true);
+
+  if (allowed && opt.acclist_URL_regex)
+    allowed = in_acclist_regex ((const regex_t *const *)opt.acclist_URL_regex, url);
+
+  if (allowed && opt.rejlist_URL_regex)
+    allowed = !in_acclist_regex ((const regex_t *const *)opt.rejlist_URL_regex, url);
+
+  return allowed;
+}
+
+/* Determine whether a URL is acceptable to be followed, according to
+   a list of domains to accept.  */
+bool accept_domain (struct url *u)
+{
+  bool allowed = true;
+  assert (u->host != NULL);
+
+  if (allowed && opt.domains)
+    allowed = sufmatch ((const char **)opt.domains, u->host);
+
+  if (allowed && opt.exclude_domains)
+    allowed = !sufmatch ((const char **)opt.exclude_domains, u->host);
+
+  if (allowed && opt.acclist_domain_regex)
+    allowed = in_acclist_regex ((const regex_t *const *)opt.acclist_domain_regex, u->host);
+
+  if (allowed && opt.rejlist_domain_regex)
+    allowed = !in_acclist_regex ((const regex_t *const *)opt.rejlist_domain_regex, u->host);
+
+  return allowed;
+}
+
+static int count_strings(char** vector) {
+  int count;
+  if (!vector)
+    count = 0;
+  else
+    count = countof(vector);
+  return count;
+}
+
+void compile_regex_str_patterns(char **patterns, regex_t ***rp_ptr) {
+  int pattern_count = count_strings (patterns);
+  if (!pattern_count)
+    return;
+
+  regex_t **regex_patterns = (regex_t **)malloc(sizeof(regex_t *) * pattern_count);
+  
+  int i;
+  char *pattern;
+  int err_no;
+  for (i=0; i<pattern_count; i++) {
+    pattern = patterns[i];
+    regex_t *regex;
+    regex = (regex_t *) malloc(sizeof(regex_t));
+    xzero(*regex);    // memset(regex, 0, sizeof(regex_t));
+
+    if((err_no=regcomp(regex, pattern, (REG_EXTENDED | REG_NOSUB)))!=0) /* Compile the regex */
+    {
+      size_t length; 
+      char *error_msg;
+      length = regerror (err_no, regex, NULL, 0);
+      error_msg = malloc(length);
+      regerror (err_no, regex, error_msg, length);
+      fprintf(stderr, "error compiling regular expression: %s\nerror message: %s\n", pattern, error_msg); /* Print the error */
+      free(error_msg);
+      regfree(regex);
+      regex_patterns[i] = NULL;
+    }
+    else {
+      regex_patterns[i] = regex;
+    }
+  }
+  *rp_ptr = regex_patterns;
+}
+
+void compile_all_regex_str_patterns(void) {
+  compile_regex_str_patterns(opt.acclist_URL_regex_str,    &opt.acclist_URL_regex);
+  compile_regex_str_patterns(opt.rejlist_URL_regex_str,    &opt.rejlist_URL_regex);
+  compile_regex_str_patterns(opt.acclist_domain_regex_str, &opt.acclist_domain_regex);
+  compile_regex_str_patterns(opt.rejlist_domain_regex_str, &opt.rejlist_domain_regex);
+  compile_regex_str_patterns(opt.acclist_path_regex_str,   &opt.acclist_path_regex);
+  compile_regex_str_patterns(opt.rejlist_path_regex_str,   &opt.rejlist_path_regex);
+}
+
+static bool in_acclist_regex(const regex_t *const *regex_patterns, const char *url)
+{
+  bool allowed = false;
+  int pattern_count = countof (regex_patterns);
+  int url_length = strlen(url);
+  regex_t* regex;
+  int i, res;
+  for (i=0; ((!allowed) && (i<pattern_count)); i++)
+  {
+    regex = regex_patterns[i];
+    res = regexec(regex, url, 0, NULL, 0);
+    if (res == REG_ESPACE)
+        fprintf(stderr, "internal error: ran out of memory while matching compiled regex pattern against url = %s\n", url);
+    else if (res == REG_NOMATCH)
+        allowed = false;
+    else
+        allowed = true; /* Found a match */
+  }
+  return allowed;
+}
+
+void clean_regex_buffer (regex_t **regex_patterns) {
+  if (regex_patterns)
+  {
+    int pattern_count = countof (regex_patterns);
+    regex_t* regex;
+    int i;
+    for (i=0; i<pattern_count; i++) {
+      regex = regex_patterns[i];
+      regfree(regex);
+      xfree(regex);
+    }
+    xfree(regex_patterns);
+  }
+}

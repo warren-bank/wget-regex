@@ -93,7 +93,6 @@ const char *print_address (const ip_address *);
 bool is_valid_ipv6_address (const char *, const char *);
 #endif
 
-bool accept_domain (struct url *);
 bool sufmatch (const char **, const char *);
 
 void host_cleanup (void);

@@ -26,6 +26,10 @@ Fork of _wget 1.11.4_ that adds the ability to set regex filters to conditionall
 #### Libraries:
 
 * [OpenSSL 1.0.2q](http://slproweb.com/products/Win32OpenSSL.html)
+* [libgnurx 2.5](https://ftp.gnome.org/pub/gnome/binaries/win32/dependencies/libgnurx-src-2.5.zip)
+  * regex functionality from glibc 2.5
+  * published by: Tor Lillqvist
+  * recompiled for: x64
 
 #### Legal:
 

@@ -28,6 +28,9 @@ Corresponding Source for a non-source form of such a combination
 shall include the source code for the parts of OpenSSL used as well
 as that of the covered work.  */
 
+#include <regex.h>
+#include "url.h"
+
 #ifndef UTILS_H
 #define UTILS_H
 
@@ -70,12 +73,9 @@ FILE *fopen_excl (const char *, bool);
 char *file_merge (const char *, const char *);
 
 int fnmatch_nocase (const char *, const char *, int);
-bool acceptable (const char *);
-bool accdir (const char *s);
 char *suffix (const char *s);
 bool match_tail (const char *, const char *, bool);
 bool has_wildcards_p (const char *);
-
 bool has_html_suffix_p (const char *);
 
 char *read_whole_line (FILE *);
@@ -125,5 +125,19 @@ int base64_decode (const char *, void *);
 void stable_sort (void *, size_t, size_t, int (*) (const void *, const void *));
 
 const char *print_decimal (double);
+
+// ============================================================================ regex additions:
+
+bool accdir (const char *s);
+
+bool acceptable (const char *, const char *);
+
+bool accept_domain (struct url *);
+
+void compile_regex_str_patterns(char **, regex_t ***);
+
+void compile_all_regex_str_patterns(void);
+
+void clean_regex_buffer (regex_t **);
 
 #endif /* UTILS_H */

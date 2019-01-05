@@ -54,6 +54,7 @@ as that of the covered work.  */
 #include "host.h"
 #include "url.h"
 #include "hash.h"
+#include <regex.h>
 
 #ifndef NO_ADDRESS
 # define NO_ADDRESS NO_DATA
@@ -814,25 +815,6 @@ lookup_host (const char *host, int flags)
     cache_store (host, al);
 
   return al;
-}
-
-/* Determine whether a URL is acceptable to be followed, according to
-   a list of domains to accept.  */
-bool
-accept_domain (struct url *u)
-{
-  assert (u->host != NULL);
-  if (opt.domains)
-    {
-      if (!sufmatch ((const char **)opt.domains, u->host))
-        return false;
-    }
-  if (opt.exclude_domains)
-    {
-      if (sufmatch ((const char **)opt.exclude_domains, u->host))
-        return false;
-    }
-  return true;
 }
 
 /* Check whether WHAT is matched in LIST, each element of LIST being a

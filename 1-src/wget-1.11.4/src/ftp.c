@@ -1696,7 +1696,7 @@ ftp_retrieve_glob (struct url *u, ccon *con, int action)
       f = start;
       while (f)
         {
-          if (f->type != FT_DIRECTORY && !acceptable (f->name))
+          if (f->type != FT_DIRECTORY && !acceptable (f->name, u->url))
             {
               logprintf (LOG_VERBOSE, _("Rejecting `%s'.\n"),
                          escnonprint (f->name));

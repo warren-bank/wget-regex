@@ -28,8 +28,24 @@ Corresponding Source for a non-source form of such a combination
 shall include the source code for the parts of OpenSSL used as well
 as that of the covered work.  */
 
+#include <regex.h>
+
 struct options
 {
+  char **acclist_URL_regex_str;
+  char **rejlist_URL_regex_str;
+  char **acclist_domain_regex_str;
+  char **rejlist_domain_regex_str;
+  char **acclist_path_regex_str;
+  char **rejlist_path_regex_str;
+
+  struct re_pattern_buffer **acclist_URL_regex;
+  struct re_pattern_buffer **rejlist_URL_regex;
+  struct re_pattern_buffer **acclist_domain_regex;
+  struct re_pattern_buffer **rejlist_domain_regex;
+  struct re_pattern_buffer **acclist_path_regex;
+  struct re_pattern_buffer **rejlist_path_regex;
+
   int verbose;			/* Are we verbose?  (First set to -1,
                                    hence not boolean.) */
   bool quiet;			/* Are we quiet? */

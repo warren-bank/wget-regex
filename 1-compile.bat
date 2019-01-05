@@ -26,6 +26,6 @@ rem ::  .\1-src\openssl-1.0.2q\lib\ssleay32.lib
 rem :: -----------------------------------------------------
 
 cd src
-mingw32-make SSL=1
+mingw32-make SSL=1 REGEX=1
 
 move /Y "wget.exe" "..\..\..\2-bin"

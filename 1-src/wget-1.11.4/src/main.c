@@ -224,6 +224,12 @@ static struct cmdline_option option_data[] =
     { "read-timeout", 0, OPT_VALUE, "readtimeout", -1 },
     { "recursive", 'r', OPT_BOOLEAN, "recursive", -1 },
     { "referer", 0, OPT_VALUE, "referer", -1 },
+    { "regex_AD", 0, OPT_VALUE, "regex_AD", -1 },
+    { "regex_AP", 0, OPT_VALUE, "regex_AP", -1 },
+    { "regex_AU", 0, OPT_VALUE, "regex_AU", -1 },
+    { "regex_RD", 0, OPT_VALUE, "regex_RD", -1 },
+    { "regex_RP", 0, OPT_VALUE, "regex_RP", -1 },
+    { "regex_RU", 0, OPT_VALUE, "regex_RU", -1 },
     { "reject", 'R', OPT_VALUE, "reject", -1 },
     { "relative", 'L', OPT_BOOLEAN, "relativeonly", -1 },
     { "remove-listing", 0, OPT_BOOLEAN, "removelisting", -1 },
@@ -995,6 +1001,8 @@ for details.\n\n"));
 #ifdef SIGWINCH
   signal (SIGWINCH, progress_handle_sigwinch);
 #endif
+
+  compile_all_regex_str_patterns();
 
   status = RETROK;              /* initialize it, just-in-case */
   /* Retrieve the URLs from argument list.  */

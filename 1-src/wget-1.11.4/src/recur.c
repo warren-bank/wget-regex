@@ -364,7 +364,7 @@ retrieve_tree (const char *start_url)
       if (file 
           && (opt.delete_after 
               || opt.spider /* opt.recursive is implicitely true */
-              || !acceptable (file)))
+              || !acceptable (file, url)))
         {
           /* Either --delete-after was specified, or we loaded this
              (otherwise unneeded because of --spider or rejected by -R) 
@@ -544,7 +544,7 @@ download_child_p (const struct urlpos *upos, struct url *parent, int depth,
                /* -p, which implies non-leaf (see above) */
                || opt.page_requisites)))
     {
-      if (!acceptable (u->file))
+      if (!acceptable (u->file, url))
         {
           DEBUGP (("%s (%s) does not match acc/rej rules.\n",
                    url, u->file));
