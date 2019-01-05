@@ -49,7 +49,7 @@ as that of the covered work.  */
    implementations of such missing functions.  It should *not* define
    new Wget-specific interfaces -- those should be placed in utils.c
    or elsewhere.  */
-
+
 /* strcasecmp and strncasecmp apparently originated with BSD 4.4.
    SUSv3 seems to be the only standard out there (that I can find)
    that requires their existence, so in theory there might be systems
@@ -129,7 +129,7 @@ memrchr (const void *s, int c, size_t n)
   return NULL;
 }
 #endif
-
+
 /* strptime is required by POSIX, but it is missing from Windows,
    which means we must keep a fallback implementation.  It is
    reportedly missing or broken on many older Unix systems as well, so
@@ -1055,7 +1055,7 @@ const unsigned short int __mon_yday[2][13] =
     { 0, 31, 60, 91, 121, 152, 182, 213, 244, 274, 305, 335, 366 }
   };
 #endif
-
+
 /* fnmatch is required by POSIX, but we include an implementation for
    the sake of systems that don't have it, most notably Windows.  Some
    systems do have fnmatch, but Apache's installation process installs
@@ -1241,7 +1241,7 @@ fnmatch (const char *pattern, const char *string, int flags)
 }
 
 #endif /* not SYSTEM_FNMATCH */
-
+
 #ifndef HAVE_TIMEGM
 /* timegm is a GNU extension, but lately also available on *BSD
    systems and possibly elsewhere. */

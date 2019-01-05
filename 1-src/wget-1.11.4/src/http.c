@@ -81,7 +81,7 @@ static void load_cookies (void);
 # define MIN(x, y) ((x) > (y) ? (y) : (x))
 #endif
 
-
+
 static bool cookies_loaded_p;
 static struct cookie_jar *wget_cookie_jar;
 
@@ -124,7 +124,7 @@ static struct cookie_jar *wget_cookie_jar;
 #define HTTP_STATUS_NOT_IMPLEMENTED       501
 #define HTTP_STATUS_BAD_GATEWAY           502
 #define HTTP_STATUS_UNAVAILABLE           503
-
+
 enum rp {
   rel_none, rel_name, rel_value, rel_both
 };
@@ -482,7 +482,7 @@ post_file (int sock, const char *file_name, wgint promised_size)
   DEBUGP (("done]\n"));
   return 0;
 }
-
+
 /* Determine whether [START, PEEKED + PEEKLEN) contains an empty line.
    If so, return the pointer to the position after the line, otherwise
    return NULL.  This is used as callback to fd_read_hunk.  The data
@@ -1066,7 +1066,7 @@ parse_content_disposition (const char *hdr, char **filename)
       }
   return false;
 }
-
+
 /* Persistent connections.  Currently, we cache the most recently used
    connection as persistent, provided that the HTTP server agrees to
    make it such.  The persistence data is stored in the variables
@@ -1284,7 +1284,7 @@ persistent_available_p (const char *host, int port, bool ssl,
     fd_close (fd);                              \
   fd = -1;                                      \
 } while (0)
-
+
 struct http_stat
 {
   wgint len;                    /* received length */
@@ -2845,7 +2845,7 @@ exit:
   
   return ret;
 }
-
+
 /* Check whether the result of strptime() indicates success.
    strptime() returns the pointer to how far it got to in the string.
    The processing has been successful if the string is at `GMT' or
@@ -2944,7 +2944,7 @@ http_atotm (const char *time_string)
 
   return ret;
 }
-
+
 /* Authorization support: We support three authorization schemes:
 
    * `Basic' scheme, consisting of base64-ing USER:PASSWORD string;
@@ -3165,7 +3165,7 @@ create_authorization_line (const char *au, const char *user,
       abort ();
     }
 }
-
+
 static void
 load_cookies (void)
 {

@@ -614,7 +614,7 @@ local_quote_string (const char *file)
 
   return html_quote_string (newname);
 }
-
+
 /* Book-keeping code for dl_file_url_map, dl_url_file_map,
    downloaded_html_list, and downloaded_html_set.  Other code calls
    these functions to let us know that a file has been downloaded.  */
@@ -859,7 +859,7 @@ convert_cleanup (void)
   if (converted_files)
     string_set_free (converted_files);
 }
-
+
 /* Book-keeping code for downloaded files that enables extension
    hacks.  */
 
@@ -955,7 +955,7 @@ downloaded_files_free (void)
       downloaded_files_hash = NULL;
     }
 }
-
+
 /* The function returns the pointer to the malloc-ed quoted version of
    string s.  It will recognize and quote numeric and special graphic
    entities, as per RFC1866:

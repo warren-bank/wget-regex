@@ -62,7 +62,7 @@ as that of the covered work.  */
    - Inhibiting output.  When Wget receives SIGHUP, but redirecting
    the output fails, logging is inhibited.  */
 
-
+
 /* The file descriptor used for logging.  This is NULL before log_init
    is called; logging functions log to stderr then.  log_init sets it
    either to stderr or to a file pointer obtained from fopen().  If
@@ -127,7 +127,7 @@ static int log_line_current = -1;
 static bool trailing_line;
 
 static void check_redirect_output (void);
-
+
 #define ROT_ADVANCE(num) do {                   \
   if (++num >= SAVED_LOG_LINES)                 \
     num = 0;                                    \
@@ -250,7 +250,7 @@ saved_append (const char *s)
       s = end;
     }
 }
-
+
 /* Check X against opt.verbose and opt.quiet.  The semantics is as
    follows:
 
@@ -294,7 +294,7 @@ get_log_fp (void)
     return logfp;
   return stderr;
 }
-
+
 /* Log a literal string S.  The string is logged as-is, without a
    newline appended.  */
 
@@ -508,7 +508,7 @@ debug_logprintf (const char *fmt, ...)
     }
 }
 #endif /* ENABLE_DEBUG */
-
+
 /* Open FILE and set up a logging stream.  If FILE cannot be opened,
    exit with status of 1.  */
 void
@@ -593,7 +593,7 @@ log_dump_context (void)
       fputs (log_lines[log_line_current].content, fp);
   fflush (fp);
 }
-
+
 /* String escape functions. */
 
 /* Return the number of non-printable characters in SOURCE.
@@ -767,7 +767,7 @@ log_cleanup (void)
   for (i = 0; i < countof (ring); i++)
     xfree_null (ring[i].buffer);
 }
-
+
 /* When SIGHUP or SIGUSR1 are received, the output is redirected
    elsewhere.  Such redirection is only allowed once. */
 static enum { RR_NONE, RR_REQUESTED, RR_DONE } redirect_request = RR_NONE;

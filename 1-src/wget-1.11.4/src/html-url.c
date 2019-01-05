@@ -346,7 +346,7 @@ append_url (const char *link_uri,
 
   return newel;
 }
-
+
 /* All the tag_* functions are called from collect_tags_mapper, as
    specified by KNOWN_TAGS.  */
 
@@ -577,7 +577,7 @@ collect_tags_mapper (struct taginfo *tag, void *arg)
 
   t->handler (t->tagid, tag, ctx);
 }
-
+
 /* Analyze HTML tags FILE and construct a list of URLs referenced from
    it.  It merges relative links in FILE with URL.  It is aware of
    <base href=...> and does the right thing.  */

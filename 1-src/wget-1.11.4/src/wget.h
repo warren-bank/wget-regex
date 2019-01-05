@@ -216,7 +216,7 @@ typedef double SUM_SIZE_INT;
 
 /* Likewise for logging functions.  */
 #include "log.h"
-
+
 /* Useful macros used across the code: */
 
 /* The number of elements in an array.  For example:
@@ -306,7 +306,7 @@ typedef double SUM_SIZE_INT;
 #define PTR_FORMAT(p) (int) (2 * sizeof (void *)), (unsigned long) (p)
 
 extern const char *exec_name;
-
+
 /* Document type ("dt") flags */
 enum
 {

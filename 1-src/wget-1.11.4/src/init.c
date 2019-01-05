@@ -274,7 +274,7 @@ command_by_name (const char *cmdname)
     }
   return -1;
 }
-
+
 /* Reset the variables to default values.  */
 static void
 defaults (void)
@@ -330,7 +330,7 @@ defaults (void)
 
   opt.max_redirect = 20;
 }
-
+
 /* Return the user's home directory (strdup-ed), or NULL if none is
    found.  */
 char *
@@ -539,7 +539,7 @@ initialize (void)
   xfree (file);
   return;
 }
-
+
 /* Remove dashes and underscores from S, modifying S in the
    process. */
 
@@ -682,7 +682,7 @@ run_command (const char *opt)
       exit (2);
     }
 }
-
+
 /* Generic helper functions, for use with `commands'. */
 
 /* Forward declarations: */
@@ -1072,7 +1072,7 @@ cmd_cert_type (const char *com, const char *val, void *place)
   return ok;
 }
 #endif
-
+
 /* Specialized helper functions, used by `commands' to handle some
    options specially.  */
 
@@ -1310,7 +1310,7 @@ cmd_spec_verbose (const char *com, const char *val, void *place_ignored)
     }
   return false;
 }
-
+
 /* Miscellaneous useful routines.  */
 
 /* A very simple atoi clone, more useful than atoi because it works on
@@ -1453,7 +1453,7 @@ decode_string (const char *val, const struct decode_item *items, int itemcount,
   return false;
 }
 
-
+
 void cleanup_html_url (void);
 
 
@@ -1526,7 +1526,7 @@ cleanup (void)
   xfree_null (opt.passwd);
 #endif /* DEBUG_MALLOC */
 }
-
+
 /* Unit testing routines.  */
 
 #ifdef TESTING

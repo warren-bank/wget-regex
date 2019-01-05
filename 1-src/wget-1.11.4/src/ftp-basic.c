@@ -49,7 +49,7 @@ as that of the covered work.  */
 
 char ftp_last_respline[128];
 
-
+
 /* Get the response of FTP server and allocate enough room to handle
    it.  <CR> and <LF> characters are stripped from the line, and the
    line is 0-terminated.  All the response lines but the last one are

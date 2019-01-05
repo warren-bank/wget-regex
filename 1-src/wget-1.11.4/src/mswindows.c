@@ -84,7 +84,7 @@ windows_main (char **exec_name)
   if (p)
     *p = '\0';
 }
-
+
 static void
 ws_cleanup (void)
 {
@@ -476,7 +476,7 @@ ws_startup (void)
   set_sleep_mode ();
   SetConsoleCtrlHandler (ws_handler, TRUE);
 }
-
+
 /* run_with_timeout Windows implementation.  */
 
 /* Stack size 0 uses default thread stack-size (reserve+commit).
@@ -572,7 +572,7 @@ run_with_timeout (double seconds, void (*fun) (void *), void *arg)
   thread_hnd = NULL;
   return rc;
 }
-
+
 /* Wget expects network calls such as connect, recv, send, etc., to set
    errno on failure.  To achieve that, Winsock calls are wrapped with code
    that, in case of error, sets errno to the value of WSAGetLastError().
@@ -689,7 +689,7 @@ windows_strerror (int err)
       return buf;
     }
 }
-
+
 #ifdef ENABLE_IPV6
 /* An inet_ntop implementation that uses WSAAddressToString.
    Prototype complies with POSIX 1003.1-2004.  This is only used under

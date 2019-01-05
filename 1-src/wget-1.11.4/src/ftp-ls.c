@@ -840,7 +840,7 @@ Unsupported listing type, trying Unix listing parser.\n"));
       return ftp_parse_unix_ls (file, 0);
     }
 }
-
+
 /* Stuff for creating FTP index. */
 
 /* The function creates an HTML index containing references to given

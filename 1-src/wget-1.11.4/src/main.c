@@ -72,7 +72,7 @@ static void redirect_output_signal (int);
 #endif
 
 const char *exec_name;
-
+
 #ifndef TESTING
 /* Initialize I18N/L10N.  That amounts to invoking setlocale, and
    setting up gettext's message catalog using bindtextdomain and
@@ -90,7 +90,7 @@ i18n_initialize (void)
   textdomain ("wget");
 #endif /* HAVE_NLS */
 }
-
+
 /* Definition of command-line options. */
 
 static void print_help (void);
@@ -692,7 +692,7 @@ There is NO WARRANTY, to the extent permitted by law.\n"), stdout);
          stdout);
   exit (0);
 }
-
+
 
 int
 main (int argc, char *const *argv)
@@ -1088,7 +1088,7 @@ for details.\n\n"));
     return 1;
 }
 #endif /* TESTING */
-
+
 #if defined(SIGHUP) || defined(SIGUSR1)
 
 /* So the signal_name check doesn't blow when only one is available. */

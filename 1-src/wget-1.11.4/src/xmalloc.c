@@ -183,7 +183,7 @@ checking_free (void *ptr)
 
   free (ptr);
 }
-
+
 #ifdef DEBUG_MALLOC
 
 /* Crude home-grown routines for debugging some malloc-related

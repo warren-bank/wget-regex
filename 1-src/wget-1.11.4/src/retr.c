@@ -66,7 +66,7 @@ FILE *output_stream;
 /* Whether output_document is a regular file we can manipulate,
    i.e. not `-' or a device file. */
 bool output_stream_regular;
-
+
 static struct {
   wgint chunk_bytes;
   double chunk_start;
@@ -334,7 +334,7 @@ fd_read_body (int fd, FILE *out, wgint toread, wgint startpos,
 
   return ret;
 }
-
+
 /* Read a hunk of data from FD, up until a terminator.  The hunk is
    limited by whatever the TERMINATOR callback chooses as its
    terminator.  For example, if terminator stops at newline, the hunk
@@ -511,7 +511,7 @@ fd_read_line (int fd)
 {
   return fd_read_hunk (fd, line_terminator, 128, FD_READ_LINE_MAX);
 }
-
+
 /* Return a printed representation of the download rate, along with
    the units appropriate for the download speed.  */
 
@@ -568,7 +568,7 @@ calc_rate (wgint bytes, double secs, int *units)
 
   return dlrate;
 }
-
+
 
 #define SUSPEND_POST_DATA do {                  \
   post_data_suspended = true;                   \

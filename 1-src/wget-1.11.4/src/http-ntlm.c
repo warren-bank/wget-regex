@@ -67,7 +67,7 @@ as that of the covered work.  */
 
 /* Define this to make the type-3 message include the NT response message */
 #define USE_NTRESPONSES 1
-
+
 /* Flag bits definitions available at on
    http://davenport.sourceforge.net/ntlm.html */
 
@@ -103,7 +103,7 @@ as that of the covered work.  */
 #define NTLMFLAG_NEGOTIATE_128                   (1<<29)
 #define NTLMFLAG_NEGOTIATE_KEY_EXCHANGE          (1<<30)
 #define NTLMFLAG_NEGOTIATE_56                    (1<<31)
-
+
 /*
   (*) = A "security buffer" is a triplet consisting of two shorts and one
   long:
