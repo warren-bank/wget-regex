@@ -23,6 +23,10 @@ Fork of _wget 1.11.4_ that adds the ability to set regex filters to conditionall
 
 * [wget 1.11.4](https://ftp.gnu.org/gnu/wget/wget-1.11.4.tar.gz)
 
+#### Libraries:
+
+* [OpenSSL 1.0.2q](http://slproweb.com/products/Win32OpenSSL.html)
+
 #### Legal:
 
 * copyright: [Warren Bank](https://github.com/warren-bank)

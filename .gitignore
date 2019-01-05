@@ -1,0 +1,11 @@
+1-src/wget-1.11.4/Makefile
+1-src/wget-1.11.4/doc/Makefile
+1-src/wget-1.11.4/src/Makefile
+1-src/wget-1.11.4/src/config.h
+1-src/wget-1.11.4/src/config-compiler.h
+1-src/wget-1.11.4/src/*.o
+
+2-bin/wget.exe
+
+3-test/*
+!3-test/.keep

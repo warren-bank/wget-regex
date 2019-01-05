@@ -30,9 +30,9 @@ OBJS=cmpt${OBJ_EXT} convert${OBJ_EXT} connect${OBJ_EXT} ftp${OBJ_EXT} ftp-basic$
 
 ifdef SSL
     ## OPENSSL_PATH is the OpenSSL installed directory
-    OPENSSL_PATH = ../../openssl-0.9.7c
-    CFLAGS += -I${OPENSSL_PATH}/outinc -DHAVE_SSL
-    LIBS += -L${OPENSSL_PATH}/out -leay32 -lssl32
+    OPENSSL_PATH = ../../openssl-1.0.2q
+    CFLAGS += -I${OPENSSL_PATH}/include -DHAVE_SSL
+    LIBS += -L${OPENSSL_PATH}/lib -leay32 -lssleay32
     OBJS += openssl${OBJ_EXT} http-ntlm${OBJ_EXT}
 endif
 
