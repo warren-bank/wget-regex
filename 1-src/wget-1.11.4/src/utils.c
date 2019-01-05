@@ -2163,6 +2163,8 @@ static bool in_acclist_regex(const regex_t *const *, const char *);
 
 bool accdir (const char *directory)
 {
+  logprintf (LOG_VERBOSE, _("accdir: directory='%s'\n"), directory);
+
   bool allowed = true;
 
   /* Remove starting '/'.  */
@@ -2188,6 +2190,8 @@ bool accdir (const char *directory)
    lists of patterns to accept/reject.  */
 bool acceptable (const char *file, const char *url)
 {
+  logprintf (LOG_VERBOSE, _("acceptable: file='%s' url='%s'\n"), file, url);
+
   bool allowed = true;
   int l = strlen (file);
 
@@ -2215,6 +2219,8 @@ bool acceptable (const char *file, const char *url)
    a list of domains to accept.  */
 bool accept_domain (struct url *u)
 {
+  logprintf (LOG_VERBOSE, _("accept_domain: domain='%s'\n"), u->host);
+
   bool allowed = true;
   assert (u->host != NULL);
 

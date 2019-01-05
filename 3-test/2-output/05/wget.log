@@ -1,0 +1,138 @@
+--2019-01-05 16:08:52--  http://localhost/page.html
+Resolving localhost... 127.0.0.1
+Connecting to localhost|127.0.0.1|:80... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 164 [text/html]
+Saving to: `C:/workspace/./3-test/2-output/05/localhost/page.html'
+
+     0K                                                       100% 12.6M=0s
+
+2019-01-05 16:08:52 (12.6 MB/s) - `C:/workspace/./3-test/2-output/05/localhost/page.html' saved [164/164]
+
+accept_domain: domain='localhost'
+accept_domain: domain='avatars1.githubusercontent.com'
+acceptable: file='C:/workspace/./3-test/2-output/05/localhost/page.html' url='http://localhost:80/page.html'
+--2019-01-05 16:08:52--  http://localhost/next/page.html
+Reusing existing connection to localhost:80.
+HTTP request sent, awaiting response... 200 OK
+Length: 199 [text/html]
+Saving to: `C:/workspace/./3-test/2-output/05/localhost/next/page.html'
+
+     0K                                                       100% 16.2M=0s
+
+2019-01-05 16:08:52 (16.2 MB/s) - `C:/workspace/./3-test/2-output/05/localhost/next/page.html' saved [199/199]
+
+accept_domain: domain='localhost'
+accept_domain: domain='localhost'
+accept_domain: domain='avatars1.githubusercontent.com'
+acceptable: file='C:/workspace/./3-test/2-output/05/localhost/next/page.html' url='http://localhost:80/next/page.html'
+--2019-01-05 16:08:52--  http://localhost/page.html
+Reusing existing connection to localhost:80.
+HTTP request sent, awaiting response... 200 OK
+Length: 164 [text/html]
+Saving to: `C:/workspace/./3-test/2-output/05/localhost/page.html'
+
+     0K                                                       100% 14.7M=0s
+
+2019-01-05 16:08:52 (14.7 MB/s) - `C:/workspace/./3-test/2-output/05/localhost/page.html' saved [164/164]
+
+accept_domain: domain='localhost'
+accept_domain: domain='avatars1.githubusercontent.com'
+acceptable: file='C:/workspace/./3-test/2-output/05/localhost/page.html' url='http://localhost/page.html'
+--2019-01-05 16:08:52--  http://localhost/next/next/page.html
+Reusing existing connection to localhost:80.
+HTTP request sent, awaiting response... 200 OK
+Length: 199 [text/html]
+Saving to: `C:/workspace/./3-test/2-output/05/localhost/next/next/page.html'
+
+     0K                                                       100% 16.7M=0s
+
+2019-01-05 16:08:52 (16.7 MB/s) - `C:/workspace/./3-test/2-output/05/localhost/next/next/page.html' saved [199/199]
+
+accept_domain: domain='localhost'
+accept_domain: domain='avatars1.githubusercontent.com'
+acceptable: file='C:/workspace/./3-test/2-output/05/localhost/next/next/page.html' url='http://localhost:80/next/next/page.html'
+--2019-01-05 16:08:52--  http://localhost/next/page.html
+Reusing existing connection to localhost:80.
+HTTP request sent, awaiting response... 200 OK
+Length: 199 [text/html]
+Saving to: `C:/workspace/./3-test/2-output/05/localhost/next/page.html'
+
+     0K                                                       100% 12.9M=0s
+
+2019-01-05 16:08:52 (12.9 MB/s) - `C:/workspace/./3-test/2-output/05/localhost/next/page.html' saved [199/199]
+
+accept_domain: domain='localhost'
+accept_domain: domain='avatars1.githubusercontent.com'
+acceptable: file='C:/workspace/./3-test/2-output/05/localhost/next/page.html' url='http://localhost/next/page.html'
+--2019-01-05 16:08:52--  http://localhost/next/next/next/page.html
+Reusing existing connection to localhost:80.
+HTTP request sent, awaiting response... 200 OK
+Length: 199 [text/html]
+Saving to: `C:/workspace/./3-test/2-output/05/localhost/next/next/next/page.html'
+
+     0K                                                       100% 16.7M=0s
+
+2019-01-05 16:08:52 (16.7 MB/s) - `C:/workspace/./3-test/2-output/05/localhost/next/next/next/page.html' saved [199/199]
+
+accept_domain: domain='localhost'
+accept_domain: domain='avatars1.githubusercontent.com'
+acceptable: file='C:/workspace/./3-test/2-output/05/localhost/next/next/next/page.html' url='http://localhost:80/next/next/next/page.html'
+--2019-01-05 16:08:52--  http://localhost/next/next/page.html
+Reusing existing connection to localhost:80.
+HTTP request sent, awaiting response... 200 OK
+Length: 199 [text/html]
+Saving to: `C:/workspace/./3-test/2-output/05/localhost/next/next/page.html'
+
+     0K                                                       100% 15.2M=0s
+
+2019-01-05 16:08:52 (15.2 MB/s) - `C:/workspace/./3-test/2-output/05/localhost/next/next/page.html' saved [199/199]
+
+accept_domain: domain='localhost'
+accept_domain: domain='avatars1.githubusercontent.com'
+acceptable: file='C:/workspace/./3-test/2-output/05/localhost/next/next/page.html' url='http://localhost/next/next/page.html'
+--2019-01-05 16:08:52--  http://localhost/next/next/next/next/page.html
+Reusing existing connection to localhost:80.
+HTTP request sent, awaiting response... 200 OK
+Length: 162 [text/html]
+Saving to: `C:/workspace/./3-test/2-output/05/localhost/next/next/next/next/page.html'
+
+     0K                                                       100% 12.8M=0s
+
+2019-01-05 16:08:52 (12.8 MB/s) - `C:/workspace/./3-test/2-output/05/localhost/next/next/next/next/page.html' saved [162/162]
+
+accept_domain: domain='avatars1.githubusercontent.com'
+acceptable: file='C:/workspace/./3-test/2-output/05/localhost/next/next/next/next/page.html' url='http://localhost:80/next/next/next/next/page.html'
+--2019-01-05 16:08:52--  http://localhost/next/next/next/page.html
+Reusing existing connection to localhost:80.
+HTTP request sent, awaiting response... 200 OK
+Length: 199 [text/html]
+Saving to: `C:/workspace/./3-test/2-output/05/localhost/next/next/next/page.html'
+
+     0K                                                       100% 12.9M=0s
+
+2019-01-05 16:08:52 (12.9 MB/s) - `C:/workspace/./3-test/2-output/05/localhost/next/next/next/page.html' saved [199/199]
+
+accept_domain: domain='localhost'
+accept_domain: domain='avatars1.githubusercontent.com'
+acceptable: file='C:/workspace/./3-test/2-output/05/localhost/next/next/next/page.html' url='http://localhost/next/next/next/page.html'
+--2019-01-05 16:08:52--  http://localhost/next/next/next/next/page.html
+Reusing existing connection to localhost:80.
+HTTP request sent, awaiting response... 200 OK
+Length: 162 [text/html]
+Saving to: `C:/workspace/./3-test/2-output/05/localhost/next/next/next/next/page.html'
+
+     0K                                                       100% 9.58M=0s
+
+2019-01-05 16:08:52 (9.58 MB/s) - `C:/workspace/./3-test/2-output/05/localhost/next/next/next/next/page.html' saved [162/162]
+
+accept_domain: domain='avatars1.githubusercontent.com'
+acceptable: file='C:/workspace/./3-test/2-output/05/localhost/next/next/next/next/page.html' url='http://localhost/next/next/next/next/page.html'
+FINISHED --2019-01-05 16:08:52--
+Downloaded: 10 files, 1.8K in 0s (13.8 MB/s)
+Converting C:/workspace/./3-test/2-output/05/localhost/next/next/page.html... 2-0
+Converting C:/workspace/./3-test/2-output/05/localhost/page.html... 1-0
+Converting C:/workspace/./3-test/2-output/05/localhost/next/next/next/page.html... 2-0
+Converting C:/workspace/./3-test/2-output/05/localhost/next/page.html... 2-0
+Converting C:/workspace/./3-test/2-output/05/localhost/next/next/next/next/page.html... 1-0
+Converted 5 files in 0.001 seconds.

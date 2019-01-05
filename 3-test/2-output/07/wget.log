@@ -1,0 +1,20 @@
+--2019-01-05 16:08:53--  http://localhost/page.html
+Resolving localhost... 127.0.0.1
+Connecting to localhost|127.0.0.1|:80... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 164 [text/html]
+Saving to: `C:/workspace/./3-test/2-output/07/localhost/page.html'
+
+     0K                                                       100% 11.5M=0s
+
+2019-01-05 16:08:53 (11.5 MB/s) - `C:/workspace/./3-test/2-output/07/localhost/page.html' saved [164/164]
+
+accept_domain: domain='localhost'
+accdir: directory='next'
+accept_domain: domain='avatars1.githubusercontent.com'
+accdir: directory='u'
+acceptable: file='C:/workspace/./3-test/2-output/07/localhost/page.html' url='http://localhost:80/page.html'
+FINISHED --2019-01-05 16:08:53--
+Downloaded: 1 files, 164 in 0s (11.5 MB/s)
+Converting C:/workspace/./3-test/2-output/07/localhost/page.html... 0-1
+Converted 1 files in 0 seconds.

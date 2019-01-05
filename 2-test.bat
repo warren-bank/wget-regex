@@ -1,9 +1,99 @@
 @echo off
 
 set wget_bin=%~dp0.\2-bin
-set test_output=%~dp0.\3-test
+set test_input=%~dp0.\3-test\1-input
+set test_output=%~dp0.\3-test\2-output
+set test_number=
 
 set PATH=%wget_bin%;%PATH%
 
-"%wget_bin%\wget.exe" --version
-"%wget_bin%\wget.exe" --ca-certificate="%wget_bin%\certs\cacert.pem" -P "%test_output%" --content-disposition "https://github.com/warren-bank/electron-starter-app/archive/master.zip" >"%test_output%\electron-starter-app-master.log" 2>&1
+set devd_home=C:\PortableApps\devd
+set devd_options=--port=80 --all
+start "web server" "%devd_home%\devd.exe" %devd_options% %test_input%
+set url_input="http://localhost:80/page.html"
+
+:test_01
+set test_number=01
+set prefix=%test_output%\%test_number%
+call :prepare_dir
+set log="%prefix%\wget.log"
+"%wget_bin%\wget.exe" --version >%log% 2>&1
+
+:test_02
+set test_number=02
+set prefix=%test_output%\%test_number%
+call :prepare_dir
+set wget_opts=--ca-certificate="%wget_bin%\certs\cacert.pem" -P "%prefix%" -nv --content-disposition
+set url="https://github.com/warren-bank/wget-regex/archive/c85fa9ee949c65efd5c2fffe3ccc7287ebd107e8.zip"
+set log="%prefix%\wget.log"
+"%wget_bin%\wget.exe" %wget_opts% %url% >%log% 2>&1
+
+:test_03
+set test_number=03
+set prefix=%test_output%\%test_number%
+call :prepare_dir
+set filters=
+call :download_website %filters%
+
+:test_04
+set test_number=04
+set prefix=%test_output%\%test_number%
+call :prepare_dir
+set filters=--regex_AD=".*local.*"
+call :download_website %filters%
+
+:test_05
+set test_number=05
+set prefix=%test_output%\%test_number%
+call :prepare_dir
+set filters=--regex_RD=".*github.*"
+call :download_website %filters%
+
+:test_06
+set test_number=06
+set prefix=%test_output%\%test_number%
+call :prepare_dir
+set filters=--regex_AP="(next|u)"
+call :download_website %filters%
+
+:test_07
+set test_number=07
+set prefix=%test_output%\%test_number%
+call :prepare_dir
+set filters=--regex_RP="(next|u)"
+call :download_website %filters%
+
+:test_08
+set test_number=08
+set prefix=%test_output%\%test_number%
+call :prepare_dir
+set filters=--regex_AU=".*(/page\.html$|/u/.*)"
+call :download_website %filters%
+
+:test_09
+set test_number=09
+set prefix=%test_output%\%test_number%
+call :prepare_dir
+set filters=--regex_RU=".*(/page\.html$|/u/.*)"
+call :download_website %filters%
+
+goto :done
+
+rem :: -----------------------------------------------------
+
+:prepare_dir
+  if exist "%prefix%" rmdir /Q /S "%prefix%"
+  mkdir "%prefix%"
+  goto :eof
+
+:download_website
+  set filters=%*
+  set wget_opts=-P "%prefix%" --no-check-certificate -e robots=off -v -r -l inf -H -E -k %filters%
+  set url=%url_input%
+  set log="%prefix%\wget.log"
+  "%wget_bin%\wget.exe" %wget_opts% %url% >%log% 2>&1
+  goto :eof
+
+rem :: -----------------------------------------------------
+
+:done

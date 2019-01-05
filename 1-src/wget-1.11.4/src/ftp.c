@@ -1691,7 +1691,7 @@ ftp_retrieve_glob (struct url *u, ccon *con, int action)
     return res;
   /* First: weed out that do not conform the global rules given in
      opt.accepts and opt.rejects.  */
-  if (opt.accepts || opt.rejects)
+  if (opt.accepts || opt.rejects || opt.acclist_URL_regex || opt.rejlist_URL_regex)
     {
       f = start;
       while (f)

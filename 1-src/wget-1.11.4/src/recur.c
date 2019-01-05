@@ -518,7 +518,7 @@ download_child_p (const struct urlpos *upos, struct url *parent, int depth,
   /* 5. If the file does not match the acceptance list, or is on the
      rejection list, chuck it out.  The same goes for the directory
      exclusion and inclusion lists.  */
-  if (opt.includes || opt.excludes)
+  if (opt.includes || opt.excludes || opt.acclist_path_regex || opt.rejlist_path_regex)
     {
       if (!accdir (u->dir))
         {

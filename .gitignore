@@ -7,5 +7,5 @@
 
 2-bin/wget.exe
 
-3-test/*
-!3-test/.keep
+3-test/2-output/??/**
+!3-test/2-output/??/wget.log
