@@ -73,7 +73,7 @@ Fork of _wget 1.11.4_ that adds the ability to set regex filters to conditionall
 
 #### Example - Usage:
 
-* [batch script: tests](https://github.com/warren-bank/wget-regex/blob/master/2-test.bat)
+* [batch script: tests](https://github.com/warren-bank/wget-regex/blob/dev-tarball-1.11.4/2-test.bat)
   * tests of particular interest: 3-9
     * variable of particular interest: `filters`
 
