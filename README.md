@@ -10,6 +10,38 @@ Fork of _wget 1.11.4_ that adds the ability to set regex filters to conditionall
 * recently found the code
   * thought it would be fun to revisit the idea..
 
+#### Historical Timeline:
+
+* patch files were sent:
+  * at:
+    * Fri, Apr 17, 2009, 12:55 AM
+  * to:
+    * [wget-patches@sunsite.dk](mailto:wget-patches@sunsite.dk)
+    * [bug-wget@gnu.org](mailto:bug-wget@gnu.org)
+    * [micah@cowan.name](mailto:micah@cowan.name)
+* regex support was added:
+  * at:
+    * 2012-04-11
+  * CLI options:
+    * `--accept-regex`
+    * `--reject-regex`
+  * [changelog](https://fossies.org/linux/wget/ChangeLog#l_7391)
+    ```text
+      2012-04-11  Gijs van Tulder  <gvtulder@gmail.com>
+
+        * src/init.c: Add --accept-regex, --reject-regex and --regex-type.
+        * src/main.c: Likewise.
+        * src/options.c: Likewise.
+        * src/recur.c: Likewise.
+        * src/utils.c: Add regex-related functions.
+        * src/utils.h: Add regex-related functions.
+
+      2012-04-11  Gijs van Tulder  <gvtulder@gmail.com>
+
+        * bootstrap.conf (gnulib_modules): Include module `regex'.
+        * configure.ac: Check for PCRE library.
+    ```
+
 #### New CLI Options:
 
 * `--regex_AD`
