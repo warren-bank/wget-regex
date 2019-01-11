@@ -10,6 +10,38 @@ Fork of _wget_ that adds the ability to set regex filters to conditionally inclu
 * recently found the code
   * thought it would be fun to revisit the idea..
 
+#### Historical Timeline:
+
+* patch files were sent:
+  * at:
+    * Fri, Apr 17, 2009, 12:55 AM
+  * to:
+    * [wget-patches@sunsite.dk](mailto:wget-patches@sunsite.dk)
+    * [bug-wget@gnu.org](mailto:bug-wget@gnu.org)
+    * [micah@cowan.name](mailto:micah@cowan.name)
+* regex support was added:
+  * at:
+    * 2012-04-11
+  * CLI options:
+    * `--accept-regex`
+    * `--reject-regex`
+  * [changelog](https://fossies.org/linux/wget/ChangeLog#l_7391)
+    ```text
+      2012-04-11  Gijs van Tulder  <gvtulder@gmail.com>
+
+        * src/init.c: Add --accept-regex, --reject-regex and --regex-type.
+        * src/main.c: Likewise.
+        * src/options.c: Likewise.
+        * src/recur.c: Likewise.
+        * src/utils.c: Add regex-related functions.
+        * src/utils.h: Add regex-related functions.
+
+      2012-04-11  Gijs van Tulder  <gvtulder@gmail.com>
+
+        * bootstrap.conf (gnulib_modules): Include module `regex'.
+        * configure.ac: Check for PCRE library.
+    ```
+
 #### New CLI Options:
 
 * `--regex_AD`
@@ -93,10 +125,8 @@ Fork of _wget_ that adds the ability to set regex filters to conditionally inclu
 
 #### Additional Libraries:
 
-* [libgnurx 2.5](https://ftp.gnome.org/pub/gnome/binaries/win32/dependencies/libgnurx-src-2.5.zip)
-  * regex functionality from glibc 2.5
-  * published by: Tor Lillqvist
-  * recompiled for: x64
+* none
+  * PCRE library is already present
 
 #### Legal:
 
