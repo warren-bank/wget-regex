@@ -83,6 +83,34 @@ call :prepare_dir
 set filters=--regex_RU=".*(/page\.html$|/u/.*)"
 call :download_website %filters%
 
+:test_10
+set test_number=10
+set prefix=%test_output%\%test_number%
+call :prepare_dir
+set filters=--regex-type=posix --accept-regex=".*(/page\.html$|/u/.*)"
+call :download_website %filters%
+
+:test_11
+set test_number=11
+set prefix=%test_output%\%test_number%
+call :prepare_dir
+set filters=--regex-type=posix --reject-regex=".*(/page\.html$|/u/.*)"
+call :download_website %filters%
+
+:test_12
+set test_number=12
+set prefix=%test_output%\%test_number%
+call :prepare_dir
+set filters=--regex-type=pcre --accept-regex=".*(/page\.html$|/u/.*)"
+call :download_website %filters%
+
+:test_13
+set test_number=13
+set prefix=%test_output%\%test_number%
+call :prepare_dir
+set filters=--regex-type=pcre --reject-regex=".*(/page\.html$|/u/.*)"
+call :download_website %filters%
+
 goto :done
 
 rem :: -----------------------------------------------------
