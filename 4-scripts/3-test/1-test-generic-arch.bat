@@ -30,7 +30,7 @@ set test_number=02
 set prefix=%test_output%\%test_number%
 call :prepare_dir
 set wget_opts=--ca-certificate="%wget_crt%" -P "%prefix%" -nv --content-disposition
-set url="https://github.com/warren-bank/wget-regex/archive/c85fa9ee949c65efd5c2fffe3ccc7287ebd107e8.zip"
+set url="https://github.com/warren-bank/wget-regex/archive/dev-git.zip"
 set log="%prefix%\wget.log"
 "%wget_bin%\wget.exe" %wget_opts% %url% >%log% 2>&1
 
@@ -45,67 +45,25 @@ call :download_website %filters%
 set test_number=04
 set prefix=%test_output%\%test_number%
 call :prepare_dir
-set filters=--regex_AD=".*local.*"
+set filters=--regex-type=posix --accept-regex=".*(/page\.html$|/u/.*)"
 call :download_website %filters%
 
 :test_05
 set test_number=05
 set prefix=%test_output%\%test_number%
 call :prepare_dir
-set filters=--regex_RD=".*github.*"
+set filters=--regex-type=posix --reject-regex=".*(/page\.html$|/u/.*)"
 call :download_website %filters%
 
 :test_06
 set test_number=06
 set prefix=%test_output%\%test_number%
 call :prepare_dir
-set filters=--regex_AP="(next|u)"
+set filters=--regex-type=pcre --accept-regex=".*(/page\.html$|/u/.*)"
 call :download_website %filters%
 
 :test_07
 set test_number=07
-set prefix=%test_output%\%test_number%
-call :prepare_dir
-set filters=--regex_RP="(next|u)"
-call :download_website %filters%
-
-:test_08
-set test_number=08
-set prefix=%test_output%\%test_number%
-call :prepare_dir
-set filters=--regex_AU=".*(/page\.html$|/u/.*)"
-call :download_website %filters%
-
-:test_09
-set test_number=09
-set prefix=%test_output%\%test_number%
-call :prepare_dir
-set filters=--regex_RU=".*(/page\.html$|/u/.*)"
-call :download_website %filters%
-
-:test_10
-set test_number=10
-set prefix=%test_output%\%test_number%
-call :prepare_dir
-set filters=--regex-type=posix --accept-regex=".*(/page\.html$|/u/.*)"
-call :download_website %filters%
-
-:test_11
-set test_number=11
-set prefix=%test_output%\%test_number%
-call :prepare_dir
-set filters=--regex-type=posix --reject-regex=".*(/page\.html$|/u/.*)"
-call :download_website %filters%
-
-:test_12
-set test_number=12
-set prefix=%test_output%\%test_number%
-call :prepare_dir
-set filters=--regex-type=pcre --accept-regex=".*(/page\.html$|/u/.*)"
-call :download_website %filters%
-
-:test_13
-set test_number=13
 set prefix=%test_output%\%test_number%
 call :prepare_dir
 set filters=--regex-type=pcre --reject-regex=".*(/page\.html$|/u/.*)"

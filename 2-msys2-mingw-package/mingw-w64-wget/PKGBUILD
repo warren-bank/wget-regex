@@ -19,7 +19,7 @@ source=("https://ftp.gnu.org/gnu/${_realname}/${_realname}-${pkgver}.tar.lz"{,.s
         gettext-reconfigure.patch
         taskbar-progress.patch
         openssl-windows-cert-store.patch
-        wget-regex.patch)
+        git-diff.patch)
 sha256sums=('0f63e84dd23dc53ab3ab6f483c3afff8301e54c165783f772101cdd9b1c64928'
             'SKIP'
             'd707a4e223433f6e79dd4f455c26dc162d26de79495d85dc4f2f92b877139325'
@@ -36,7 +36,7 @@ prepare() {
   #Patch for supporting windows certificate store if openssl cacerts is not found
   patch -p1 -i ${srcdir}/openssl-windows-cert-store.patch
   #Patch for support of regex recursive download filters
-  patch -p1 -i ${srcdir}/wget-regex.patch
+  patch -p1 -i ${srcdir}/git-diff.patch
   autoreconf -fiv
 }
 

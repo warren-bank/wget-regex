@@ -14,4 +14,4 @@ git_version='1.20.1'
 git_tag="v${git_version}"
 git_dev_branch="dev-git-tag-${git_version}"
 
-git diff --no-ext-diff --no-color --patch --relative="$wget_prefix" "$git_tag" "$git_dev_branch" >"${mingw_pkg_repo}/wget-regex.patch"
+git diff --no-ext-diff --no-color --patch --relative="$wget_prefix" "$git_tag" "$git_dev_branch" >"${mingw_pkg_repo}/git-diff.patch"

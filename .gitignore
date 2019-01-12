@@ -2,7 +2,6 @@
 2-msys2-mingw-package/mingw-w64-wget/pkg/
 2-msys2-mingw-package/mingw-w64-wget/mingw-w64-*
 2-msys2-mingw-package/mingw-w64-wget/wget-*
-!2-msys2-mingw-package/mingw-w64-wget/wget-regex.patch
 
 3-test/2-output/x??/??/**
 !3-test/2-output/x??/??/wget.log
