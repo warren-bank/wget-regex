@@ -1,0 +1,13 @@
+diff --git a/src/main.c b/src/main.c
+index 4408ffbb..c84b7e5d 100644
+--- a/src/main.c
++++ b/src/main.c
+@@ -27,7 +27,7 @@ Corresponding Source for a non-source form of such a combination
+ shall include the source code for the parts of OpenSSL used as well
+ as that of the covered work.  */
+ 
+-#include "wget.h"
++#include <wget.h>
+ 
+ #include <stdio.h>
+ #include <stdlib.h>
