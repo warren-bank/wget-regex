@@ -1,0 +1,16 @@
+--2019-01-12 18:32:07--  http://localhost/page.html
+Resolving localhost (localhost)... ::1, 127.0.0.1
+Connecting to localhost (localhost)|::1|:80... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 164 [text/html]
+Saving to: 'C:/workspace/wget-regex/4-scripts/3-test/../../3-test/2-output/x32/07/localhost/page.html'
+
+     0K                                                       100% 4.31M=0s
+
+2019-01-12 18:32:07 (4.31 MB/s) - 'C:/workspace/wget-regex/4-scripts/3-test/../../3-test/2-output/x32/07/localhost/page.html' saved [164/164]
+
+FINISHED --2019-01-12 18:32:07--
+Total wall clock time: 0.02s
+Downloaded: 1 files, 164 in 0s (4.31 MB/s)
+Converting links in C:/workspace/wget-regex/4-scripts/3-test/../../3-test/2-output/x32/07/localhost/page.html... 0-1
+Converted links in 1 files in 0 seconds.

@@ -1,0 +1,72 @@
+--2019-01-12 17:46:40--  http://localhost/page.html
+Resolving localhost (localhost)... ::1, 127.0.0.1
+Connecting to localhost (localhost)|::1|:80... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 164 [text/html]
+Saving to: 'C:/workspace/wget-regex/4-scripts/3-test/../../3-test/2-output/x64/04/localhost/page.html'
+
+     0K                                                       100% 2.50M=0s
+
+2019-01-12 17:46:40 (2.50 MB/s) - 'C:/workspace/wget-regex/4-scripts/3-test/../../3-test/2-output/x64/04/localhost/page.html' saved [164/164]
+
+--2019-01-12 17:46:40--  http://localhost/next/page.html
+Reusing existing connection to [localhost]:80.
+HTTP request sent, awaiting response... 200 OK
+Length: 199 [text/html]
+Saving to: 'C:/workspace/wget-regex/4-scripts/3-test/../../3-test/2-output/x64/04/localhost/next/page.html'
+
+     0K                                                       100% 7.19M=0s
+
+2019-01-12 17:46:40 (7.19 MB/s) - 'C:/workspace/wget-regex/4-scripts/3-test/../../3-test/2-output/x64/04/localhost/next/page.html' saved [199/199]
+
+--2019-01-12 17:46:40--  https://avatars1.githubusercontent.com/u/6810270
+Resolving avatars1.githubusercontent.com (avatars1.githubusercontent.com)... 151.101.24.133
+Connecting to avatars1.githubusercontent.com (avatars1.githubusercontent.com)|151.101.24.133|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 77464 (76K) [image/png]
+Saving to: 'C:/workspace/wget-regex/4-scripts/3-test/../../3-test/2-output/x64/04/avatars1.githubusercontent.com/u/6810270'
+
+     0K .......... .......... .......... .......... .......... 66%  902K 0s
+    50K .......... .......... .....                           100% 5.33M=0.06s
+
+2019-01-12 17:46:41 (1.23 MB/s) - 'C:/workspace/wget-regex/4-scripts/3-test/../../3-test/2-output/x64/04/avatars1.githubusercontent.com/u/6810270' saved [77464/77464]
+
+--2019-01-12 17:46:41--  http://localhost/next/next/page.html
+Connecting to localhost (localhost)|::1|:80... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 199 [text/html]
+Saving to: 'C:/workspace/wget-regex/4-scripts/3-test/../../3-test/2-output/x64/04/localhost/next/next/page.html'
+
+     0K                                                       100% 2.04M=0s
+
+2019-01-12 17:46:41 (2.04 MB/s) - 'C:/workspace/wget-regex/4-scripts/3-test/../../3-test/2-output/x64/04/localhost/next/next/page.html' saved [199/199]
+
+--2019-01-12 17:46:41--  http://localhost/next/next/next/page.html
+Reusing existing connection to [localhost]:80.
+HTTP request sent, awaiting response... 200 OK
+Length: 199 [text/html]
+Saving to: 'C:/workspace/wget-regex/4-scripts/3-test/../../3-test/2-output/x64/04/localhost/next/next/next/page.html'
+
+     0K                                                       100% 2.03M=0s
+
+2019-01-12 17:46:41 (2.03 MB/s) - 'C:/workspace/wget-regex/4-scripts/3-test/../../3-test/2-output/x64/04/localhost/next/next/next/page.html' saved [199/199]
+
+--2019-01-12 17:46:41--  http://localhost/next/next/next/next/page.html
+Reusing existing connection to [localhost]:80.
+HTTP request sent, awaiting response... 200 OK
+Length: 162 [text/html]
+Saving to: 'C:/workspace/wget-regex/4-scripts/3-test/../../3-test/2-output/x64/04/localhost/next/next/next/next/page.html'
+
+     0K                                                       100% 1.63M=0s
+
+2019-01-12 17:46:41 (1.63 MB/s) - 'C:/workspace/wget-regex/4-scripts/3-test/../../3-test/2-output/x64/04/localhost/next/next/next/next/page.html' saved [162/162]
+
+FINISHED --2019-01-12 17:46:41--
+Total wall clock time: 0.2s
+Downloaded: 6 files, 77K in 0.06s (1.24 MB/s)
+Converting links in C:/workspace/wget-regex/4-scripts/3-test/../../3-test/2-output/x64/04/localhost/next/next/next/next/page.html... 2-0
+Converting links in C:/workspace/wget-regex/4-scripts/3-test/../../3-test/2-output/x64/04/localhost/next/next/page.html... 3-0
+Converting links in C:/workspace/wget-regex/4-scripts/3-test/../../3-test/2-output/x64/04/localhost/page.html... 2-0
+Converting links in C:/workspace/wget-regex/4-scripts/3-test/../../3-test/2-output/x64/04/localhost/next/page.html... 3-0
+Converting links in C:/workspace/wget-regex/4-scripts/3-test/../../3-test/2-output/x64/04/localhost/next/next/next/page.html... 3-0
+Converted links in 5 files in 0.004 seconds.

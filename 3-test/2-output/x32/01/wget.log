@@ -1,0 +1,47 @@
+GNU Wget 1.20.1 built on mingw32.
+
+-cares +digest +gpgme +https +ipv6 +iri +large-file +metalink +nls 
++ntlm +opie +psl +ssl/openssl 
+
+Wgetrc: 
+    C:/PortableApps/msys64/mingw32/etc/wgetrc (system)
+Locale: 
+    C:/PortableApps/msys64/mingw32/share/locale 
+Compile: 
+    i686-w64-mingw32-gcc -DHAVE_CONFIG_H 
+    -DSYSTEM_WGETRC="/mingw32/etc/wgetrc" 
+    -DLOCALEDIR="/mingw32/share/locale" -I. -I../../wget-1.20.1/src 
+    -I../lib -I../../wget-1.20.1/lib -D_FORTIFY_SOURCE=2 
+    -D__USE_MINGW_ANSI_STDIO=1 -I/mingw32/include -I/mingw32/include 
+    -IC:/PortableApps/msys64/mingw32/include 
+    -IC:/PortableApps/msys64/mingw32/include 
+    -IC:/PortableApps/msys64/mingw32/include -DHAVE_LIBSSL 
+    -IC:/PortableApps/msys64/mingw32/include 
+    -IC:/PortableApps/msys64/mingw32/include -DNDEBUG -march=i686 
+    -mtune=generic -O2 -pipe 
+Link: 
+    i686-w64-mingw32-gcc -I/mingw32/include 
+    -IC:/PortableApps/msys64/mingw32/include 
+    -IC:/PortableApps/msys64/mingw32/include 
+    -IC:/PortableApps/msys64/mingw32/include -DHAVE_LIBSSL 
+    -IC:/PortableApps/msys64/mingw32/include 
+    -IC:/PortableApps/msys64/mingw32/include -DNDEBUG -march=i686 
+    -mtune=generic -O2 -pipe -pipe -LC:/PortableApps/msys64/mingw32/lib 
+    -lmetalink -LC:/PortableApps/msys64/mingw32/lib -lpcre2-8 -lidn2 
+    -LC:/PortableApps/msys64/mingw32/lib -lssl -lcrypto 
+    -LC:/PortableApps/msys64/mingw32/lib -lz 
+    -LC:/PortableApps/msys64/mingw32/lib -lpsl -lole32 -lws2_32 
+    -L/mingw32/lib -lgpgme -lassuan -lws2_32 -lgpg-error ftp-opie.o 
+    mswindows.o openssl.o http-ntlm.o ../lib/libgnu.a -lws2_32 -lws2_32 
+    -lws2_32 -lws2_32 -lws2_32 /mingw32/lib/libiconv.dll.a 
+    -L/mingw32/lib /mingw32/lib/libintl.dll.a -L/mingw32/lib 
+    /mingw32/lib/libunistring.dll.a -L/mingw32/lib -lws2_32 
+
+Copyright (C) 2015 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later
+<http://www.gnu.org/licenses/gpl.html>.
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+
+Originally written by Hrvoje Niksic <hniksic@xemacs.org>.
+Please send bug reports and questions to <bug-wget@gnu.org>.
